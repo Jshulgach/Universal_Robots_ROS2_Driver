@@ -380,7 +380,7 @@ return_type URPositionHardwareInterface::start()
                                                                            "calibration-information] "
                                                                            "for details.");
   }
-
+  ur_driver_->setKeepaliveCount(500);
   ur_driver_->startRTDECommunication();
 
   async_thread_ = std::make_shared<std::thread>(&URPositionHardwareInterface::asyncThread, this);
